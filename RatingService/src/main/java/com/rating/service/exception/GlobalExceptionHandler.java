@@ -1,4 +1,4 @@
-package com.hotel.service.exception;
+package com.rating.service.exception;
 
 import java.util.HashMap;
 import java.util.Map;
