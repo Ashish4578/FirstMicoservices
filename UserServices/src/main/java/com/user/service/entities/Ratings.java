@@ -2,13 +2,11 @@ package com.user.service.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Builder
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Ratings {
@@ -20,5 +18,7 @@ public class Ratings {
 
 	private int rating;
 
-	private String remark;
+	private String feedback;
+	
+	private Hotel hotel;
 }
