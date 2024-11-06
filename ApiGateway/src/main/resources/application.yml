@@ -3,37 +3,26 @@ server:
 
 spring:
   application:
-    name: api-gateway
+    name: API-GATEWAY
+
   cloud:
     gateway:
       routes:
         - id : user-service
-          uri: lb://USERSERVICES
+          uri: lb://USER-SERVICE
           predicates :
             - Path=/users/**
 
         - id: hotel-service
-          uri: lb://HOTELSERVICE
+          uri: lb://HOTEL-SERVICE
           predicates :
             - Path=/hotel/**
 
         - id: rating-service
-          uri: lb://RATINGSERVICE
+          uri: lb://RATING-SERVICE
           predicates :
             - Path=/ratings/**
 
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka
-
-
-logging:
-  level:
-    org.springframework.cloud.gateway: DEBUG
-    org.springframework.cloud.netflix.eureka: DEBUG
-
+  config:
+    import: configserver:http://localhost:8085
+ 

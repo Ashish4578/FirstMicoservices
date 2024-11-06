@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.user.service.entities.Ratings;
 
 @Service
-@FeignClient(name = "RATINGSERVICE")
+@FeignClient(name = "RATING-SERVICE")
 public interface RatingService {
 //	@PostMapping("/ratings")
 //	Ratings createRating(Ratings rating);
