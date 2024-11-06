@@ -43,15 +43,11 @@ public class UsersController {
 		return new ResponseEntity<>(user, HttpStatus.OK);
 	}
 
-	int count = 0;
-
 	@GetMapping("/{id}")
 	@CircuitBreaker(name = "hotelRatingBreaker", fallbackMethod = "ratingHotelFallBackMethod")
 	@Retry(name = "hotelRatingRetry", fallbackMethod = "ratingHotelFallBackRetryMethod")
 	public ResponseEntity<UsersMicro> getUserById(@PathVariable String id) {
 		UsersMicro user = userServices.getUser(id);
-		System.out.println(count);
-		count++;
 		return ResponseEntity.ok(user);
 	}
 
